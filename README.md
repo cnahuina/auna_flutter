@@ -1,4 +1,4 @@
-# reu_app
+# auna app
 
 A new Flutter application.
 
