@@ -24,26 +24,25 @@ class MyApp extends StatelessWidget {
               ])
           ),
           body: SafeArea(
-              bottom: false,
-              child: TabBarView(
-                  children: [
-                      Page1(),
-                      cuerpo2(),
-                      cuerpo3(),
+            bottom: false,
+            child: TabBarView(
+                children: [
+                    Page1(),
+                    Cuerpo2(),
+                    cuerpo3(),
                 ]
-                )
+            )
           ),
 
           drawer: Drawer(
             child: ListView(
               children: <Widget>[
                 UserAccountsDrawerHeader(
-                    accountName: Text("Carlos harold"),
-                    accountEmail: Text("cnahuina@gmail.com"),
-                    currentAccountPicture: ClipOval(
-                      child: Image.network("http://pm1.narvii.com/6497/bd3631a78d49b157c247eafad8e61851d2fc18a3_00.jpg"),
-        )
-                ),
+                  accountName: Text("Carlos harold"),
+                  accountEmail: Text("cnahuina@gmail.com"),
+                  currentAccountPicture: ClipOval(
+                    child: Image.network("http://pm1.narvii.com/6497/bd3631a78d49b157c247eafad8e61851d2fc18a3_00.jpg"),
+                  )),
                 ListTile(
                   leading: Icon(Icons.business),
                   title: Text("Clínicas"),

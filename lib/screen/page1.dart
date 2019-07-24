@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+import 'package:search_widget/search_widget.dart';
+import 'search_view.dart';
 
 final List<String> imgList = [
   'https://www.iperu.org/wp-content/uploads/2018/10/clinica-delgado.jpg',
@@ -23,13 +24,37 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-
+  List<LeaderBoard> list = <LeaderBoard>[
+    LeaderBoard("Flutter", 54.0),
+    LeaderBoard("React", 22.5),
+    LeaderBoard("Ionic", 24.7),
+    LeaderBoard("Xamarin", 22.1),
+  ];
   int _current = 0;
   @override
 
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
+        SearchWidget<LeaderBoard>(
+                dataList: list,
+                hideSearchBoxWhenItemSelected: false,
+                listContainerHeight: MediaQuery.of(context).size.height / 4,
+                queryBuilder: (String query, List<LeaderBoard> list) {
+                  return list.where((LeaderBoard item) => item.username.toLowerCase().contains(query.toLowerCase())).toList();
+                },
+                popupListItemBuilder: (LeaderBoard item) {
+                  return PopupListItemWidget(item);
+                },
+                selectedItemBuilder: (LeaderBoard selectedItem, VoidCallback deleteSelectedItem) {
+                  return SelectedItemWidget(selectedItem, deleteSelectedItem);
+                },
+                // widget customization
+                noItemsFoundWidget: NoItemsFound(),
+                textFieldBuilder: (TextEditingController controller, FocusNode focusNode) {
+                  return MyTextField(controller, focusNode);
+                },
+              ),
         Stack(
           children: <Widget>[
             Padding(
@@ -200,3 +225,4 @@ class _Page1State extends State<Page1> {
     );
   }
 }
+

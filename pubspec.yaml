@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  search_widget: ^0.2.0
   cupertino_icons: ^0.1.2
   carousel_slider: ^1.3.0
 
