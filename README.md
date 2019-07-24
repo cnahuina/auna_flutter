@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # auna_app
+=======
+# auna app
+>>>>>>> 60e54b6174d57441c9620e184d776ba5978959f1
 
 A new Flutter application.
 
